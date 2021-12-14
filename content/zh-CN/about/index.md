@@ -2,7 +2,7 @@
 title = "关于我"
 description = "Hugo，世界上最快的网站建设框架"
 date = "2019-02-28"
-author = "Hugo Authors"
+author = "liuqiang"
 url = "about.html"
 type = "about"
 +++

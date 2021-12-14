@@ -24,8 +24,8 @@
 #  GoogleSiteId = "Your GoogleSiteId"
 
 [OnlineIM]
-  Enable = false
-#  DaoVoiceId = "Your DaoVoiceId"
+  Enable = true
+  DaoVoiceId = "3458c3a852098d15b122a50a72dea4690fee77aa088963f5e8657146a71aead0"
 
 [Others]
 #  RevolverMapId = "Your RevolverMapId"
