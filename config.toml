@@ -1,0 +1,4 @@
+baseURL = 'https://ivita.cn/'
+languageCode = 'zh-cn'
+title = 'IT生活'
+destination="docs"

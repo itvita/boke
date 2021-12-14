@@ -1,2 +1,1 @@
-# boke
-个人博客
+hugo --destination="docs"
