@@ -9,23 +9,23 @@
 [Comment]
   Enable = true
   Module = "Waline"
-  LiveReId = "Your LiveReId"
-  WalineSerURL = "Your WalineSerURL"
+  LiveReId = "my-waline"
+  WalineSerURL = "https://my-waline-3mkfqkj6h-itvita.vercel.app"
 
 [LeanCloud]
-  AppId = "Your LCAppId"
-  AppKey = "Your LCAppKey"
-  ServerURL = "Your LCServer"
+  AppId = "nGRVvdAmPr0I0HJHSFtS3lLq-MdYXbMMI"
+  AppKey = "6YeetGiOhNRu9FEV1Sk63sFG"
+  ServerURL = "waline.itvita.cn"
 
 [Statis]
   BusuanziCounter = true
 #  CNNZSiteId = "Your CNNZSiteId"
-#  BaiduSiteId = "Your BaiduSiteId"
+  BaiduSiteId = "f43be215263abb41e413517e0bce18e8"
 #  GoogleSiteId = "Your GoogleSiteId"
 
 [OnlineIM]
   Enable = true
-  DaoVoiceId = "3458c3a852098d15b122a50a72dea4690fee77aa088963f5e8657146a71aead0"
+  DaoVoiceId = "33dc1ab1"
 
 [Others]
-#  RevolverMapId = "Your RevolverMapId"
+#  RevolverMapId = "5vcdkhaq1g6"
