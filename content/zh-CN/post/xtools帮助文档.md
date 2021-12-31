@@ -1,8 +1,8 @@
 ---
 author: "liuqiang"
-title: "Xui-Admin帮助文档"
-url: "2021/09/03/min帮助文档.html"
-date: "2021-09-03T16:11:14+08:00"
+title: "Xtools帮助文档"
+url: "2021/12/12/帮助文档.html"
+date: "2021-12-31T12:56:16+08:00"
 toc: true
 math: true
 description: ""
@@ -404,3 +404,66 @@ export default {
 | 事件名称     |回调参数         | 说明               | 
 | ------------ | ------------------ | ---------------- |
 | change | function(newValue) | 内容改变触发
+
+## 简易上传组件
+### 示例
+![](https://cdn.jsdelivr.net/gh/itvita/resources@master/images/202112311136516.png)
+### 代码
+```html
+<template>
+  <div>
+    <x-upload
+      accept=".doc,.docx,.pdf,.xls,.xlsx"
+      :size="1"
+      :action="url"
+      @beforeUpload="beforeUpload"
+      @uploadSuccess="uploadSuccess"
+      @uploadError="uploadError"
+    >
+      <div>
+        简易上传，自定义按钮
+      </div>
+    </x-upload>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      url: 'https://xxx.com/v1/upload'
+    }
+  },
+  methods: {
+    beforeUpload (param) {
+      console.log(param)
+    },
+    uploadSuccess (param) {
+      console.log(param)
+    },
+    uploadError (error) {
+      console.log(error)
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+```
+### 属性
+| 属性   | 说明                    | 类型   | 默认值 |
+| ------ | ----------------------- | ------ | ------ |
+|action|文件上传地址|String|''|
+|size|文件限制大小，单位MB|Number|2|
+|accept|格式限制（.jpg,.png,.xls）|String|各种|
+|headers|自定义header|Object|{}|
+|params|自定义额外参数|Object|{}|
+
+### 事件
+| 事件名称     |回调参数         | 说明               | 
+| ------------ | ------------------ | ---------------- |
+| beforeUpload | function({ id,file,name,size,suffix}) | 上传前调用
+| uploadSuccess | function({name,path,original,suffix,size}) | 上传成功调用
+| uploadError | function({message}) | 上传失败调用
