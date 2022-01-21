@@ -1,0 +1,267 @@
+---
+author: "liuqiang"
+title: "XTable"
+url: "2022/01/01/xtable.html"
+date: "2022-01-21T16:58:20+08:00"
+toc: true
+math: true
+description: "xTable,共用搜索条,@itvita/xtools-antd"
+categories: ["@itvita/xtools-antd"]
+tags: ["vue","插件"]
+---
+## 示例
+![](https://cdn.jsdelivr.net/gh/itvita/resources@master/images/202201211649098.png)
+## 代码
+```html
+ <x-table
+      ref="myTable"
+      title="菜单列表"
+      :columns="columns"
+      :action="action"
+      :expandedRowDetail="2"
+      data-url="https://getman.cn/mock/my/table3">
+      <a-space slot="tools">
+        <a-button icon="plus" type="primary">
+          添加
+        </a-button>
+        <a-button icon="delete" type="danger">
+          批量删除
+        </a-button>
+      </a-space>
+    </x-table>
+```
+```javascript
+const columns = [
+  {
+    title: '名称',
+    key: 'accountName',
+    align: 'left',
+    sorter: true,
+    width: 180,
+    formatter: { // 文本格式化显示
+      type: 'text',
+      format: row => {
+        return {
+          value: row.accountName, // 显示文本（必填）
+          color: '#1890ff', // 显示颜色link,error,wain, rgb , hex
+          event: () => { // 点击触发事件
+            console.log(row.accountName)
+          }
+        }
+      }
+    }
+  },
+  {
+    title: '状态',
+    key: 'state',
+    align: 'center',
+    sorter: true,
+    width: 180,
+    formatter: { // 文本格式化显示
+      type: 'badge',
+      format: row => {
+        if (row.state === 1) {
+          return {
+            value: '启用', // 显示文本（必填）
+            color: 'blue', // 徽章颜色'blue','green','gray','orange','yellow','red' 等支持16进制
+            event: () => { // 点击触发事件
+              console.log(row.state)
+            }
+          }
+        } else {
+          return {
+            value: '禁用', // 显示文本（必填）
+            color: 'red' // 徽章颜色'blue','green','gray','orange','yellow','red' 等支持16进制
+          }
+        }
+      }
+    }
+  },
+  {
+    title: '图片格式化测试',
+    key: 'images',
+    align: 'left',
+    sorter: true,
+    width: 180,
+    formatter: {
+      type: 'image', // 格式化方式
+      width: '28px', // 图片显示宽度，不设置默认50px
+      height: '28px', // 图片显示高度，不设置默认50px
+      format: row => {
+        return [
+          {
+            name: '图片提示名称', // 名称
+            url: 'https://norisk-prod-1305901002.cos.ap-chengdu.myqcloud.com/20220119/014026340563464bb7ee74d653325825.png' // 图片路径
+          },
+          {
+            url: 'https://norisk-prod-1305901002.cos.ap-chengdu.myqcloud.com/20220119/014026340563464bb7ee74d653325825.png' // 图片路径
+          }
+        ]
+      }
+    }
+  },
+  {
+    title: '区域名称',
+    key: 'areaName',
+    align: 'center', // 对齐方式
+    sorter: true, // 是否可以排序
+    width: 150, // 宽度，数字或百分比
+    ellipsis: 1,
+    hide: false// 从列表中隐藏该列
+  },
+  {
+    title: '时间',
+    key: 'createdTime',
+    align: 'center',
+    width: 150 // 宽度，数字或百分比
+  },
+  {
+    title: '地址',
+    key: 'cmpAddress',
+    align: 'left',
+    ellipsis: 2,
+    width: 150 // 宽度，数字或百分比
+  }
+]
+const action = [
+  {
+    title: '修改',
+    color: 'link', // 显示颜色link,error,wain, rgb , hex
+    event: row => {
+      console.log(row)
+    }
+  },
+  {
+    title: '删除',
+    color: 'error', // 显示颜色link,error,wain, rgb , hex
+    event: row => {
+      console.log(row)
+    }
+  },
+  {
+    title: '其他',
+    color: 'wain', // 显示颜色link,error,wain, rgb , hex
+    event: row => {
+      console.log(row)
+    }
+  }
+]
+export default {
+  data () {
+    return {
+      columns,
+      action
+    }
+  },
+  mounted () {
+    this.$refs.myTable.search({ headers: {}, params: {} })
+  },
+  methods: {
+    search (params) {
+      console.log(params)
+    }
+  }
+}
+```
+## 属性
+
+| 属性     | 说明                       | 类型   | 默认值 |
+| -------- | -------------------------- | ------ | ------ |
+| title      | 列表标题 | String | 查询列表   |
+| columns | 列配置                   | Array  |   []     |
+| action | 操作配置                   | Array  |   []     |
+| expandedRowDetail | 详情行                   | Number  |  0     |
+| rowKey | 行键 同antd-table            | String，function  |  id     |
+| selection | 开启选择框 [checkbox,radio]   | String  |        |
+| showIndex | 显示序号| Boolean  |    false    |
+| dataUrl | 数据请求地址           | String  |       |
+| actionWidth | 操作列宽          | Number  |    120   |
+
+### columns
+| 属性     | 说明                       | 类型   |可选|  默认值
+| -------- | -------------------------- | ------ | ------ |---|
+| title      | 列名称 | String |    |
+| key      | 键 | String |    |
+| align      | 对齐方式 | String | left，center,right    |left
+| sorter      | 是否开启排序 | Boolean |  true，false  | false
+| width      |列宽 | Number，String |  像素或百分比  | 自适应
+| ellipsis      | 超出省略 | Number | 设置为0或false则全显   | 1
+| hide      | 隐藏列 | Boolean |    | false
+| formatter      | 内容格式化 | Object |    | 
+
+### formatter 示例
+#### 格式化为文本
+```javascript
+formatter: { // 文本格式化显示
+      type: 'text',
+      format: row => {
+        return {
+          value: row.accountName, // 显示文本（必填）
+          color: '#1890ff', // 显示颜色link,error,wain, rgb , hex
+          event: () => { // 点击触发事件
+            console.log(row.accountName)
+          }
+        }
+      }
+    }
+```
+#### 格式化为徽章
+```javascript
+    formatter: { // 文本格式化显示
+      type: 'badge',
+      format: row => {
+        if (row.state === 1) {
+          return {
+            value: '启用', // 显示文本（必填）
+            color: 'blue', // 徽章颜色'blue','green','gray','orange','yellow','red' 等支持16进制
+            event: () => { // 点击触发事件
+              console.log(row.state)
+            }
+          }
+        } else {
+          return {
+            value: '禁用', // 显示文本（必填）
+            color: 'red' // 徽章颜色'blue','green','gray','orange','yellow','red' 等支持16进制
+          }
+        }
+      }
+    }
+```
+#### 格式化为图片
+```javascript
+formatter: {
+      type: 'image', // 格式化方式
+      width: '28px', // 图片显示宽度，不设置默认50px
+      height: '28px', // 图片显示高度，不设置默认50px
+      format: row => {
+        return [
+          {
+            name: '图片提示名称', // 名称
+            url: 'https://norisk-prod-1305901002.cos.ap-chengdu.myqcloud.com/20220119/014026340563464bb7ee74d653325825.png' // 图片路径
+          },
+          {
+            url: 'https://norisk-prod-1305901002.cos.ap-chengdu.myqcloud.com/20220119/014026340563464bb7ee74d653325825.png' // 图片路径
+          }
+        ]
+      }
+    }
+```
+
+## 事件
+
+| 事件名称     | 说明               | 回调参数         |
+| ------------ | ------------------ | ---------------- |
+| rowSelection | 行选择 | function(selectedRowKeys，selectedRows) |
+> selectedRowKeys 选中行 key
+
+> selectedRows 选中行数据
+
+## 方法
+
+| 方法名称 | 说明       | 举例                                               |
+| ---- | ---------- | -------------------------------------------------- |
+| search | 获取查询条件 |  this.$refs.myTable.search({ headers: {}, params: {} }) |
+
+> headers 主要用于增加token
+
+> params 搜索条查询条件，或其他来源查询条件，分页排序条件已内置
