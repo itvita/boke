@@ -4,14 +4,14 @@
 <meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
 <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
 <meta http-equiv=content-security-policy content="upgrade-insecure-requests">
-<title> XSearch - IT生活 </title>
+<title> Electron创建项目 - IT生活 </title>
 <meta name=keywords content="博客,程序员,架构师,思考,读书,笔记,技术,分享,全栈,产品,前端,后端">
 <meta name=author content="itvita">
-<meta property="og:title" content="XSearch">
+<meta property="og:title" content="Electron创建项目">
 <meta property="og:site_name" content="IT生活">
 <meta property="og:image" content="/img/author.jpg">
-<meta name=title content="XSearch - IT生活">
-<meta name=description content="xSearch,共用搜索条,@itvita/xtools-antd">
+<meta name=title content="Electron创建项目 - IT生活">
+<meta name=description content="欢迎来到IT生活小宅，个人主要专注于全栈开发技术。">
 <link rel="shortcut icon" href=/img/favicon.ico>
 <link rel=apple-touch-icon href=/img/apple-touch-icon.jpg>
 <link rel=apple-touch-icon-precomposed href=/img/apple-touch-icon.jpg>
@@ -98,16 +98,16 @@
 <article class="post post-type-normal" itemscope itemtype=http://schema.org/Article>
 <header class=post-header>
 <h1 class=post-title itemprop="name headline">
-<a class=post-title-link href=https://itvita.cn/2022/01/01/xsearch.html itemprop=url>
-XSearch
+<a class=post-title-link href=https://itvita.cn/2022/01/01/on%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE.html itemprop=url>
+Electron创建项目
 </a>
 </h1>
 <div class=post-meta>
 <span class=post-time>
 <i class="fa fa-calendar-o fa-fw"></i>
 <span class=post-meta-item-text>时间：</span>
-<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-01-21">
-2022-01-21
+<time itemprop=dateCreated datetime=2016-03-22T13:04:35+08:00 content="2022-01-25">
+2022-01-25
 </time>
 </span>
 <span class=post-category>
@@ -115,8 +115,8 @@ XSearch
 <i class="fa fa-folder-o fa-fw"></i>
 <span class=post-meta-item-text>分类：</span>
 <span itemprop=about itemscope itemtype=https://schema.org/Thing>
-<a href=/categories/itvita/xtools-antd itemprop=url rel=index style=text-decoration:underline>
-<span itemprop=name>@itvita/xtools-antd</span>
+<a href=/categories/ itemprop=url rel=index style=text-decoration:underline>
+<span itemprop=name></span>
 </a>
 &nbsp;
 </span>
@@ -125,15 +125,15 @@ XSearch
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>642 字</span>
+<span class=leancloud-world-count>27 字</span>
 </span>
 <span>
 |
 <i class="fa fa-eye fa-fw"></i>
 <span class=post-meta-item-text>阅读：</span>
-<span class=leancloud-view-count>2分钟</span>
+<span class=leancloud-view-count>1分钟</span>
 </span>
-<span id=/2022/01/01/xsearch.html class=leancloud_visitors data-flag-title=XSearch>
+<span id=/2022/01/01/on%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE.html class=leancloud_visitors data-flag-title=Electron创建项目>
 |
 <i class="fa fa-binoculars fa-fw"></i>
 <span class=post-meta-item-text>阅读次数：</span>
@@ -142,249 +142,19 @@ XSearch
 </div>
 </header>
 <div class=post-body itemprop=articleBody>
-<h2 id=示例>示例</h2>
-<p><img src=https://cdn.jsdelivr.net/gh/itvita/resources@master/images/202201211649098.png alt></p>
-<h2 id=代码>代码</h2>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html> &lt;<span style=color:green;font-weight:700>x-search</span> <span style=color:#b44>ref</span><span style=color:#666>=</span><span style=color:#b44>&#34;mySearch&#34;</span> <span style=color:#b44>:search-items</span><span style=color:#666>=</span><span style=color:#b44>&#34;searchItems&#34;</span> <span style=color:#b44>:label-width</span><span style=color:#666>=</span><span style=color:#b44>&#34;100&#34;</span> <span>@</span><span style=color:#b44>search</span><span style=color:#666>=</span><span style=color:#b44>&#34;search&#34;</span>&gt;&lt;/<span style=color:green;font-weight:700>x-search</span>&gt;
-</code></pre></div><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-javascript data-lang=javascript><span style=color:#a2f;font-weight:700>const</span> searchItems <span style=color:#666>=</span> [
-  {
-    type<span style=color:#666>:</span> <span style=color:#b44>&#39;text&#39;</span>,
-    key<span style=color:#666>:</span> <span style=color:#b44>&#39;name&#39;</span>,
-    label<span style=color:#666>:</span> <span style=color:#b44>&#39;文本&#39;</span>,
-    value<span style=color:#666>:</span> <span style=color:#b44>&#39;张三&#39;</span>,
-    placeholder<span style=color:#666>:</span> <span style=color:#b44>&#39;提示文字&#39;</span>
-  },
-  {
-    type<span style=color:#666>:</span> <span style=color:#b44>&#39;select&#39;</span>,
-    key<span style=color:#666>:</span> <span style=color:#b44>&#39;sex&#39;</span>,
-    label<span style=color:#666>:</span> <span style=color:#b44>&#39;下拉&#39;</span>,
-    value<span style=color:#666>:</span> <span style=color:#b44>&#39;&#39;</span>,
-    placeholder<span style=color:#666>:</span> <span style=color:#b44>&#39;请选择&#39;</span>,
-    options<span style=color:#666>:</span> [
-      {
-        label<span style=color:#666>:</span> <span style=color:#b44>&#39;男&#39;</span>,
-        value<span style=color:#666>:</span> <span style=color:#b44>&#39;1&#39;</span>
-      },
-      {
-        label<span style=color:#666>:</span> <span style=color:#b44>&#39;女&#39;</span>,
-        value<span style=color:#666>:</span> <span style=color:#b44>&#39;2&#39;</span>
-      }
-    ]
-  },
-  {
-    type<span style=color:#666>:</span> <span style=color:#b44>&#39;select&#39;</span>,
-    key<span style=color:#666>:</span> <span style=color:#b44>&#39;sex1&#39;</span>,
-    label<span style=color:#666>:</span> <span style=color:#b44>&#39;动态下拉&#39;</span>,
-    value<span style=color:#666>:</span> <span style=color:#b44>&#39;&#39;</span>,
-    placeholder<span style=color:#666>:</span> <span style=color:#b44>&#39;请选择&#39;</span>,
-    options<span style=color:#666>:</span> []
-  },
-  {
-    type<span style=color:#666>:</span> <span style=color:#b44>&#39;rangePicker&#39;</span>,
-    key<span style=color:#666>:</span> <span style=color:#b44>&#39;rangeDate&#39;</span>,
-    label<span style=color:#666>:</span> <span style=color:#b44>&#39;日期范围&#39;</span>,
-    value<span style=color:#666>:</span> [<span style=color:#b44>&#39;2022-01-21 00:00:00&#39;</span>, <span style=color:#b44>&#39;2022-01-31 23:59:59&#39;</span>]
-  },
-  {
-    type<span style=color:#666>:</span> <span style=color:#b44>&#39;cascader&#39;</span>,
-    key<span style=color:#666>:</span> <span style=color:#b44>&#39;address&#39;</span>,
-    label<span style=color:#666>:</span> <span style=color:#b44>&#39;级联下拉&#39;</span>,
-    value<span style=color:#666>:</span> [],
-    options<span style=color:#666>:</span> [
-      {
-        id<span style=color:#666>:</span> <span style=color:#b44>&#39;1&#39;</span>,
-        parentId<span style=color:#666>:</span> <span style=color:#b44>&#39;0&#39;</span>,
-        label<span style=color:#666>:</span> <span style=color:#b44>&#39;河南&#39;</span>,
-        value<span style=color:#666>:</span> <span style=color:#b44>&#39;001&#39;</span>
-      },
-      {
-        id<span style=color:#666>:</span> <span style=color:#b44>&#39;2&#39;</span>,
-        parentId<span style=color:#666>:</span> <span style=color:#b44>&#39;1&#39;</span>,
-        label<span style=color:#666>:</span> <span style=color:#b44>&#39;郑州&#39;</span>,
-        value<span style=color:#666>:</span> <span style=color:#b44>&#39;001001&#39;</span>
-      },
-      {
-        id<span style=color:#666>:</span> <span style=color:#b44>&#39;3&#39;</span>,
-        parentId<span style=color:#666>:</span> <span style=color:#b44>&#39;2&#39;</span>,
-        label<span style=color:#666>:</span> <span style=color:#b44>&#39;高新区&#39;</span>,
-        value<span style=color:#666>:</span> <span style=color:#b44>&#39;001001001&#39;</span>
-      }
-    ]
-  },
-  {
-    type<span style=color:#666>:</span> <span style=color:#b44>&#39;cascader&#39;</span>,
-    key<span style=color:#666>:</span> <span style=color:#b44>&#39;address1&#39;</span>,
-    label<span style=color:#666>:</span> <span style=color:#b44>&#39;动态级联下拉&#39;</span>,
-    value<span style=color:#666>:</span> [],
-    options<span style=color:#666>:</span> []
-  }
-]
-<span style=color:#a2f;font-weight:700>export</span> <span style=color:#a2f;font-weight:700>default</span> {
-  data () {
-    <span style=color:#a2f;font-weight:700>return</span> {
-      searchItems
-    }
-  },
-  mounted () {
-    <span style=color:#080;font-style:italic>// 模拟延迟加载数据
-</span><span style=color:#080;font-style:italic></span>    setTimeout(() =&gt; {
-      <span style=color:#a2f;font-weight:700>this</span>.searchItems[<span style=color:#666>2</span>].options <span style=color:#666>=</span> [{
-        label<span style=color:#666>:</span> <span style=color:#b44>&#39;男&#39;</span>,
-        value<span style=color:#666>:</span> <span style=color:#b44>&#39;1&#39;</span>
-      },
-        {
-          label<span style=color:#666>:</span> <span style=color:#b44>&#39;女&#39;</span>,
-          value<span style=color:#666>:</span> <span style=color:#b44>&#39;2&#39;</span>
-        }]
+<h3 id=使用electron-forge创建>使用Electron Forge创建</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>yarn create electron-app my-app
 
-      <span style=color:#a2f;font-weight:700>this</span>.searchItems[<span style=color:#666>5</span>].options <span style=color:#666>=</span> [
-        {
-          id<span style=color:#666>:</span> <span style=color:#b44>&#39;1&#39;</span>,
-          parentId<span style=color:#666>:</span> <span style=color:#b44>&#39;0&#39;</span>,
-          label<span style=color:#666>:</span> <span style=color:#b44>&#39;河南&#39;</span>,
-          value<span style=color:#666>:</span> <span style=color:#b44>&#39;001&#39;</span>
-        },
-        {
-          id<span style=color:#666>:</span> <span style=color:#b44>&#39;2&#39;</span>,
-          parentId<span style=color:#666>:</span> <span style=color:#b44>&#39;1&#39;</span>,
-          label<span style=color:#666>:</span> <span style=color:#b44>&#39;郑州&#39;</span>,
-          value<span style=color:#666>:</span> <span style=color:#b44>&#39;001001&#39;</span>
-        },
-        {
-          id<span style=color:#666>:</span> <span style=color:#b44>&#39;3&#39;</span>,
-          parentId<span style=color:#666>:</span> <span style=color:#b44>&#39;2&#39;</span>,
-          label<span style=color:#666>:</span> <span style=color:#b44>&#39;高新区&#39;</span>,
-          value<span style=color:#666>:</span> <span style=color:#b44>&#39;001001001&#39;</span>
-        }
-      ]
-    }, <span style=color:#666>3000</span>)
-  },
-  methods<span style=color:#666>:</span> {
-    search (params) {
-      console.log(params)
-    }
-  }
-}
-</code></pre></div><h2 id=属性>属性</h2>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>说明</th>
-<th>类型</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>label-width</td>
-<td>label宽度</td>
-<td>Number</td>
-<td>100</td>
-</tr>
-<tr>
-<td>search-items</td>
-<td>组件配置</td>
-<td>Array</td>
-<td>[]</td>
-</tr>
-</tbody>
-</table>
-<h3 id=search-items>search-items</h3>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>说明</th>
-<th>类型</th>
-<th>可选项</th>
-<th>默认值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>类型</td>
-<td>String</td>
-<td>text,select,rangePicker,cascader</td>
-<td></td>
-</tr>
-<tr>
-<td>key</td>
-<td>键</td>
-<td>String</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>label</td>
-<td>显示名称</td>
-<td>String</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>value</td>
-<td>值</td>
-<td>String,Array</td>
-<td>text，select时为String，rangePicker,cascader为Array</td>
-<td></td>
-</tr>
-<tr>
-<td>placeholder</td>
-<td>提示文字</td>
-<td>String</td>
-<td></td>
-<td>非必填</td>
-</tr>
-<tr>
-<td>options</td>
-<td>select，cascader选项</td>
-<td>Array</td>
-<td>简单数组</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h2 id=事件>事件</h2>
-<table>
-<thead>
-<tr>
-<th>事件名称</th>
-<th>说明</th>
-<th>回调参数</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>search</td>
-<td>搜索</td>
-<td>function(searchFrom)</td>
-</tr>
-</tbody>
-</table>
-<h2 id=方法>方法</h2>
-<table>
-<thead>
-<tr>
-<th>方法名称</th>
-<th>说明</th>
-<th>举例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>getSearchFrom</td>
-<td>获取查询条件</td>
-<td>this.$refs.mySearch.getSearchFrom()</td>
-</tr>
-</tbody>
-</table>
+cd my-app
+
+yarn install
+
+yarn start
+</code></pre></div>
 </div>
 <footer class=post-footer>
 <div class=post-tags>
-<a href=/tags/vue rel=tag title=vue>#vue#</a>
-<a href=/tags/%e6%8f%92%e4%bb%b6 rel=tag title=插件>#插件#</a>
+<a href=/tags/ rel=tag title>##</a>
 </div>
 <div class=addthis_inline_share_toolbox></div>
 <div class=post-nav>
@@ -395,10 +165,10 @@ XSearch
 </div>
 <div class=article-copyright-info>
 <p>
-<span>声明：</span>XSearch
+<span>声明：</span>Electron创建项目
 </p>
 <p>
-<span>链接：</span>https://itvita.cn/2022/01/01/xsearch.html
+<span>链接：</span>https://itvita.cn/2022/01/01/on%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE.html
 </p>
 <p>
 <span>作者：</span>itvita
@@ -428,13 +198,10 @@ XSearch
 </div>
 <div class=post-nav>
 <div class="post-nav-next post-nav-item">
-<a href=https://itvita.cn/2022/01/01/xtable.html rel=next title=XTable>
-<i class="fa fa-chevron-left"></i> XTable
-</a>
 </div>
 <div class="post-nav-prev post-nav-item">
-<a href=https://itvita.cn/2022/01/01/Springboot%E5%8A%A8%E6%80%81%E6%95%B0%E6%8D%AE%E6%BA%90.html rel=prev title=Springboot动态数据源>
-Springboot动态数据源
+<a href=https://itvita.cn/2022/01/01/xtable.html rel=prev title=XTable>
+XTable
 <i class="fa fa-chevron-right"></i>
 </a>
 </div>
@@ -561,15 +328,11 @@ gitee
 <div class=post-toc>
 <div class=post-toc-content><nav id=TableOfContents>
 <ul>
-<li><a href=#示例>示例</a></li>
-<li><a href=#代码>代码</a></li>
-<li><a href=#属性>属性</a>
+<li>
 <ul>
-<li><a href=#search-items>search-items</a></li>
+<li><a href=#使用electron-forge创建>使用Electron Forge创建</a></li>
 </ul>
 </li>
-<li><a href=#事件>事件</a></li>
-<li><a href=#方法>方法</a></li>
 </ul>
 </nav></div>
 </div>

@@ -54,20 +54,20 @@ export default {
 ```
 
 ### 属性
-| 属性   | 说明                    | 类型   | 默认值 |
-| ------ | ----------------------- | ------ | ------ |
-| baseUrl  | 图片访问跟地址                | String |    |
-|action|文件上传地址|String||
-|headers|上传header|Object|{}|
-|v-model|绑定数据|Array|[]|
-|maxNum|最大上传数量|Number|5|
-|size|大小限制，单位MB|Number|2|
-|accept|限制格式|String|.png, .jpg, .jpeg, .gif|
+| 属性    | 说明             | 类型   | 默认值                  |
+| ------- | ---------------- | ------ | ----------------------- |
+| baseUrl | 图片访问跟地址   | String |                         |
+| action  | 文件上传地址     | String |                         |
+| headers | 上传header       | Object | {}                      |
+| v-model | 绑定数据         | Array  | []                      |
+| maxNum  | 最大上传数量     | Number | 5                       |
+| size    | 大小限制，单位MB | Number | 2                       |
+| accept  | 限制格式         | String | .png, .jpg, .jpeg, .gif |
 
 ### 事件
-| 事件名称     | 说明               | 回调参数         |
-| ------------ | ------------------ | ---------------- |
-| done | 上传完成调用 | function(values) |
+| 事件名称 | 说明         | 回调参数         |
+| -------- | ------------ | ---------------- |
+| done     | 上传完成调用 | function(values) |
 
 ## ztree树形展示
 ### 示例
@@ -138,14 +138,14 @@ export default {
 
 
 ### 事件
-| 事件名称     | 回调参数         |说明               | 
-| ------------ | ------------------ | ---------------- |
-| click |  function(values) |点击事件，选中项的数据 |
+| 事件名称 | 回调参数         | 说明                   |
+| -------- | ---------------- | ---------------------- |
+| click    | function(values) | 点击事件，选中项的数据 |
 
 ### 方法
-| 方法名称     | 参数               | 说明         |
-| ------------ | ------------------ | ---------------- |
-| init | 树形简单数据[{id,name,pId}] | 树形初始化 |
+| 方法名称 | 参数                        | 说明       |
+| -------- | --------------------------- | ---------- |
+| init     | 树形简单数据[{id,name,pId}] | 树形初始化 |
 
 ## 多选
 ### 示例
@@ -218,22 +218,22 @@ export default {
 ```
 
 ### 属性
-| 属性   | 说明                    | 类型   | 默认值 |
-| ------ | ----------------------- | ------ | ------ |
-| multiple  | 是否多选                | Boolean |  false  |
-|dataSource|数据源，两级数组[{id,name,children}]|Array||
+| 属性       | 说明                                 | 类型    | 默认值 |
+| ---------- | ------------------------------------ | ------- | ------ |
+| multiple   | 是否多选                             | Boolean | false  |
+| dataSource | 数据源，两级数组[{id,name,children}] | Array   |        |
 
 ### 事件
-| 事件名称     |回调参数         | 说明               | 
-| ------------ | ------------------ | ---------------- |
-| change | function({ item, type, selectIds }) | 选项改变，item 当前操作项, type【'selected'选择，'unselected'取消选择】, selectIds 最终结果id数组 
+| 事件名称 | 回调参数                            | 说明                                                                                              |
+| -------- | ----------------------------------- | ------------------------------------------------------------------------------------------------- |
+| change   | function({ item, type, selectIds }) | 选项改变，item 当前操作项, type【'selected'选择，'unselected'取消选择】, selectIds 最终结果id数组 |
 
 
 ### 方法
-| 方法名称     | 参数               | 说明         |
-| ------------ | ------------------ | ---------------- |
-| getSelectIds |  | 获取选中ID |
-| getSelectObjects |  | 获取选中对象 |
+| 方法名称         | 参数 | 说明         |
+| ---------------- | ---- | ------------ |
+| getSelectIds     |      | 获取选中ID   |
+| getSelectObjects |      | 获取选中对象 |
 
 ## 描述列表
 ### 示例
@@ -268,10 +268,10 @@ methods: {}
 
 
 ### 属性
-| 属性   | 说明                    | 类型   | 默认值 |
-| ------ | ----------------------- | ------ | ------ |
-| label  | 标题                | String |    |
-|label-width|标题宽度，单位px|String|0px|
+| 属性        | 说明             | 类型   | 默认值 |
+| ----------- | ---------------- | ------ | ------ |
+| label       | 标题             | String |        |
+| label-width | 标题宽度，单位px | String | 0px    |
 
 ## 图片预览
 ### 示例
@@ -334,21 +334,21 @@ export default {
 
 ```
 ### 属性
-| 属性   | 说明                    | 类型   | 默认值 |
-| ------ | ----------------------- | ------ | ------ |
-| v-model(value)  | 数据[{name:xx,url:xx}]                | Array | []   |
-|url|url 键名|String|url|
-|baseUrl|图片访问跟域名|String|''|
-|width|宽|String|100px|
-|height|高|String|100px|
-|showBtn|是否显示预览 删除按钮|Boolean|false|
-|showName|是否显示图片名称|Boolean|false|
+| 属性           | 说明                   | 类型    | 默认值 |
+| -------------- | ---------------------- | ------- | ------ |
+| v-model(value) | 数据[{name:xx,url:xx}] | Array   | []     |
+| url            | url 键名               | String  | url    |
+| baseUrl        | 图片访问跟域名         | String  | ''     |
+| width          | 宽                     | String  | 100px  |
+| height         | 高                     | String  | 100px  |
+| showBtn        | 是否显示预览 删除按钮  | Boolean | false  |
+| showName       | 是否显示图片名称       | Boolean | false  |
 
 ### 事件
-| 事件名称     |回调参数         | 说明               | 
-| ------------ | ------------------ | ---------------- |
-| change | function(newData) | 图片列表改变后的数组
-| delete | function(newData,delData) | 删除事件，newData删除后的结果，delData删除数据
+| 事件名称 | 回调参数                  | 说明                                           |
+| -------- | ------------------------- | ---------------------------------------------- |
+| change   | function(newData)         | 图片列表改变后的数组                           |
+| delete   | function(newData,delData) | 删除事件，newData删除后的结果，delData删除数据 |
 
 ## 富文本
 ### 示例
@@ -391,19 +391,19 @@ export default {
 <style scoped lang="less"></style>
 ```
 ### 属性
-| 属性   | 说明                    | 类型   | 默认值 |
-| ------ | ----------------------- | ------ | ------ |
-| v-model(value)  | 数据(html内容)   | String | ''  |
-|action|文件上传地址|String|''|
-|basePath|图片访问跟路径|String|''|
-|placeholder|空内容提示性文字|String|请输入内容...|
-|height|高(单位px)|Number|300|
-|headers|自定义header|Object|{}|
+| 属性           | 说明             | 类型   | 默认值        |
+| -------------- | ---------------- | ------ | ------------- |
+| v-model(value) | 数据(html内容)   | String | ''            |
+| action         | 文件上传地址     | String | ''            |
+| basePath       | 图片访问跟路径   | String | ''            |
+| placeholder    | 空内容提示性文字 | String | 请输入内容... |
+| height         | 高(单位px)       | Number | 300           |
+| headers        | 自定义header     | Object | {}            |
 
 ### 事件
-| 事件名称     |回调参数         | 说明               | 
-| ------------ | ------------------ | ---------------- |
-| change | function(newValue) | 内容改变触发
+| 事件名称 | 回调参数           | 说明         |
+| -------- | ------------------ | ------------ |
+| change   | function(newValue) | 内容改变触发 |
 
 ## 简易上传组件
 ### 示例
@@ -453,17 +453,97 @@ export default {
 </style>
 ```
 ### 属性
-| 属性   | 说明                    | 类型   | 默认值 |
-| ------ | ----------------------- | ------ | ------ |
-|action|文件上传地址|String|''|
-|size|文件限制大小，单位MB|Number|2|
-|accept|格式限制（.jpg,.png,.xls）|String|各种|
-|headers|自定义header|Object|{}|
-|params|自定义额外参数|Object|{}|
+| 属性    | 说明                       | 类型   | 默认值 |
+| ------- | -------------------------- | ------ | ------ |
+| action  | 文件上传地址               | String | ''     |
+| size    | 文件限制大小，单位MB       | Number | 2      |
+| accept  | 格式限制（.jpg,.png,.xls） | String | 各种   |
+| headers | 自定义header               | Object | {}     |
+| params  | 自定义额外参数             | Object | {}     |
 
 ### 事件
-| 事件名称     |回调参数         | 说明               | 
-| ------------ | ------------------ | ---------------- |
-| beforeUpload | function({ id,file,name,size,suffix}) | 上传前调用
-| uploadSuccess | function({name,path,original,suffix,size}) | 上传成功调用
-| uploadError | function({message}) | 上传失败调用
+| 事件名称      | 回调参数                                   | 说明         |
+| ------------- | ------------------------------------------ | ------------ |
+| beforeUpload  | function({ id,file,name,size,suffix})      | 上传前调用   |
+| uploadSuccess | function({name,path,original,suffix,size}) | 上传成功调用 |
+| uploadError   | function({message})                        | 上传失败调用 |
+
+## 图片预览v2
+### 示例
+![](https://cdn.jsdelivr.net/gh/itvita/resources@master/images/202202151155088.png)
+### 代码
+```html
+<template>
+  <div>
+    <x-image-preview
+      width="100px"
+      height="100px"
+      :baseUrl="baseUrl"
+      url="path"
+      :showDel="true"
+      :draggable="true"
+      v-model="ImgList"
+      @change="handelChange"
+    >
+    </x-image-preview>
+  </div>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      baseUrl: 'https://norisk-prod-1305901002.cos.ap-chengdu.myqcloud.com/',
+      ImgList: [
+        {
+          id: 1,
+          path: '20220119/014026340563464bb7ee74d653325825.png'
+        },
+        {
+          id: 2,
+          path: '20211015/f9cec9d0e43d4edb91c69d5d2b9389b0.jpg'
+        }
+      ]
+    }
+  },
+  mounted () {
+    setTimeout(() => {
+      this.ImgList.push(
+        {
+          id: 3,
+          path: '20211015/f9cec9d0e43d4edb91c69d5d2b9389b0.jpg'
+        }
+      )
+    }, 3000)
+  },
+  methods: {
+    handelChange (v) {
+    console.log(JSON.stringify(v))
+      console.log(JSON.stringify(this.ImgList))
+    }
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+
+```
+### 属性
+| 属性           | 说明                 | 类型    | 默认值  |
+| -------------- | -------------------- | ------- | ------- |
+| v-model(value) | 绑定数据[{path:xxx}] | Array   | ''      |
+| width          | 宽                   | String  | '100px' |
+| height         | 高                   | String  | '100px' |
+| baseUrl        | 图片跟地址           | String  |         |
+| url            | list对应url路径key   | String  |         |
+| showDel        | 是否显示删除按钮     | Boolean | true    |
+| draggable      | 是否允许拖动         | Boolean | true    |
+
+### 事件
+| 事件名称 | 回调参数           | 说明         |
+| -------- | ------------------ | ------------ |
+| change   | function(newValue) | 内容改变触发 |
+| delete   | function(delValue) | 删除项       |
+

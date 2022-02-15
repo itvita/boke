@@ -125,7 +125,7 @@ Xtools帮助文档
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>1775 字</span>
+<span class=leancloud-world-count>1965 字</span>
 </span>
 <span>
 |
@@ -885,6 +885,143 @@ methods<span style=color:#666>:</span> {}
 </tr>
 </tbody>
 </table>
+<h2 id=图片预览v2>图片预览v2</h2>
+<h3 id=示例-7>示例</h3>
+<p><img src=https://cdn.jsdelivr.net/gh/itvita/resources@master/images/202202151155088.png alt></p>
+<h3 id=代码-7>代码</h3>
+<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-html data-lang=html>&lt;<span style=color:green;font-weight:700>template</span>&gt;
+  &lt;<span style=color:green;font-weight:700>div</span>&gt;
+    &lt;<span style=color:green;font-weight:700>x-image-preview</span>
+      <span style=color:#b44>width</span><span style=color:#666>=</span><span style=color:#b44>&#34;100px&#34;</span>
+      <span style=color:#b44>height</span><span style=color:#666>=</span><span style=color:#b44>&#34;100px&#34;</span>
+      <span style=color:#b44>:baseUrl</span><span style=color:#666>=</span><span style=color:#b44>&#34;baseUrl&#34;</span>
+      <span style=color:#b44>url</span><span style=color:#666>=</span><span style=color:#b44>&#34;path&#34;</span>
+      <span style=color:#b44>:showDel</span><span style=color:#666>=</span><span style=color:#b44>&#34;true&#34;</span>
+      <span style=color:#b44>:draggable</span><span style=color:#666>=</span><span style=color:#b44>&#34;true&#34;</span>
+      <span style=color:#b44>v-model</span><span style=color:#666>=</span><span style=color:#b44>&#34;ImgList&#34;</span>
+      <span>@</span><span style=color:#b44>change</span><span style=color:#666>=</span><span style=color:#b44>&#34;handelChange&#34;</span>
+    &gt;
+    &lt;/<span style=color:green;font-weight:700>x-image-preview</span>&gt;
+  &lt;/<span style=color:green;font-weight:700>div</span>&gt;
+&lt;/<span style=color:green;font-weight:700>template</span>&gt;
+
+&lt;<span style=color:green;font-weight:700>script</span>&gt;
+<span style=color:#a2f;font-weight:700>export</span> <span style=color:#a2f;font-weight:700>default</span> {
+  data () {
+    <span style=color:#a2f;font-weight:700>return</span> {
+      baseUrl<span style=color:#666>:</span> <span style=color:#b44>&#39;https://norisk-prod-1305901002.cos.ap-chengdu.myqcloud.com/&#39;</span>,
+      ImgList<span style=color:#666>:</span> [
+        {
+          id<span style=color:#666>:</span> <span style=color:#666>1</span>,
+          path<span style=color:#666>:</span> <span style=color:#b44>&#39;20220119/014026340563464bb7ee74d653325825.png&#39;</span>
+        },
+        {
+          id<span style=color:#666>:</span> <span style=color:#666>2</span>,
+          path<span style=color:#666>:</span> <span style=color:#b44>&#39;20211015/f9cec9d0e43d4edb91c69d5d2b9389b0.jpg&#39;</span>
+        }
+      ]
+    }
+  },
+  mounted () {
+    setTimeout(() =&gt; {
+      <span style=color:#a2f;font-weight:700>this</span>.ImgList.push(
+        {
+          id<span style=color:#666>:</span> <span style=color:#666>3</span>,
+          path<span style=color:#666>:</span> <span style=color:#b44>&#39;20211015/f9cec9d0e43d4edb91c69d5d2b9389b0.jpg&#39;</span>
+        }
+      )
+    }, <span style=color:#666>3000</span>)
+  },
+  methods<span style=color:#666>:</span> {
+    handelChange (v) {
+    console.log(JSON.stringify(v))
+      console.log(JSON.stringify(<span style=color:#a2f;font-weight:700>this</span>.ImgList))
+    }
+  }
+}
+&lt;/<span style=color:green;font-weight:700>script</span>&gt;
+
+&lt;<span style=color:green;font-weight:700>style</span> <span style=color:#b44>scoped</span>&gt;
+
+&lt;/<span style=color:green;font-weight:700>style</span>&gt;
+
+</code></pre></div><h3 id=属性-6>属性</h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v-model(value)</td>
+<td>绑定数据[{path:xxx}]</td>
+<td>Array</td>
+<td>''</td>
+</tr>
+<tr>
+<td>width</td>
+<td>宽</td>
+<td>String</td>
+<td>&lsquo;100px&rsquo;</td>
+</tr>
+<tr>
+<td>height</td>
+<td>高</td>
+<td>String</td>
+<td>&lsquo;100px&rsquo;</td>
+</tr>
+<tr>
+<td>baseUrl</td>
+<td>图片跟地址</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>url</td>
+<td>list对应url路径key</td>
+<td>String</td>
+<td></td>
+</tr>
+<tr>
+<td>showDel</td>
+<td>是否显示删除按钮</td>
+<td>Boolean</td>
+<td>true</td>
+</tr>
+<tr>
+<td>draggable</td>
+<td>是否允许拖动</td>
+<td>Boolean</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h3 id=事件-6>事件</h3>
+<table>
+<thead>
+<tr>
+<th>事件名称</th>
+<th>回调参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>change</td>
+<td>function(newValue)</td>
+<td>内容改变触发</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>function(delValue)</td>
+<td>删除项</td>
+</tr>
+</tbody>
+</table>
 </div>
 <footer class=post-footer>
 <div class=post-tags>
@@ -978,7 +1115,7 @@ Kettle-数据库存储
 <nav class="site-state motion-element">
 <div class="site-state-item site-state-posts">
 <a href=/post/>
-<span class=site-state-item-count>30</span>
+<span class=site-state-item-count>31</span>
 <span class=site-state-item-name>日志</span>
 </a>
 </div>
@@ -1120,6 +1257,14 @@ gitee
 <li><a href=#代码-6>代码</a></li>
 <li><a href=#属性-5>属性</a></li>
 <li><a href=#事件-5>事件</a></li>
+</ul>
+</li>
+<li><a href=#图片预览v2>图片预览v2</a>
+<ul>
+<li><a href=#示例-7>示例</a></li>
+<li><a href=#代码-7>代码</a></li>
+<li><a href=#属性-6>属性</a></li>
+<li><a href=#事件-6>事件</a></li>
 </ul>
 </li>
 </ul>
