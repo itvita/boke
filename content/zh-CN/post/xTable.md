@@ -9,6 +9,17 @@ description: "xTable,共用搜索条,@itvita/xtools-antd"
 categories: ["@itvita/xtools-antd"]
 tags: ["vue","插件"]
 ---
+
+1. [示例](#示例)
+2. [代码](#代码)
+3. [属性](#属性)
+   1. [columns](#columns)
+   2. [formatter 示例](#formatter-示例)
+      1. [格式化为文本](#格式化为文本)
+      2. [格式化为徽章](#格式化为徽章)
+      3. [格式化为图片](#格式化为图片)
+4. [事件](#事件)
+5. [方法](#方法)
 ## 示例
 ![](https://cdn.jsdelivr.net/gh/itvita/resources@master/images/202201211649098.png)
 ## 代码
@@ -126,6 +137,7 @@ const columns = [
 const action = [
   {
     title: '修改',
+    icon:'edit',//显示图标，目前仅支持官方图标库，moren edit
     color: 'link', // 显示颜色link,error,wain, rgb , hex
     event: row => {
       console.log(row)
@@ -165,29 +177,29 @@ export default {
 ```
 ## 属性
 
-| 属性     | 说明                       | 类型   | 默认值 |
-| -------- | -------------------------- | ------ | ------ |
-| title      | 列表标题 | String | 查询列表   |
-| columns | 列配置                   | Array  |   []     |
-| action | 操作配置                   | Array  |   []     |
-| expandedRowDetail | 详情行                   | Number  |  0     |
-| rowKey | 行键 同antd-table            | String，function  |  id     |
-| selection | 开启选择框 [checkbox,radio]   | String  |        |
-| showIndex | 显示序号| Boolean  |    false    |
-| dataUrl | 数据请求地址           | String  |       |
-| actionWidth | 操作列宽          | Number  |    120   |
+| 属性              | 说明                        | 类型             | 默认值   |
+| ----------------- | --------------------------- | ---------------- | -------- |
+| title             | 列表标题                    | String           | 查询列表 |
+| columns           | 列配置                      | Array            | []       |
+| action            | 操作配置                    | Array            | []       |
+| expandedRowDetail | 详情行                      | Number           | 0        |
+| rowKey            | 行键 同antd-table           | String，function | id       |
+| selection         | 开启选择框 [checkbox,radio] | String           |          |
+| showIndex         | 显示序号                    | Boolean          | false    |
+| dataUrl           | 数据请求地址                | String           |          |
+| actionWidth       | 操作列宽                    | Number           | 120      |
 
 ### columns
-| 属性     | 说明                       | 类型   |可选|  默认值
-| -------- | -------------------------- | ------ | ------ |---|
-| title      | 列名称 | String |    |
-| key      | 键 | String |    |
-| align      | 对齐方式 | String | left，center,right    |left
-| sorter      | 是否开启排序 | Boolean |  true，false  | false
-| width      |列宽 | Number，String |  像素或百分比  | 自适应
-| ellipsis      | 超出省略 | Number | 设置为0或false则全显   | 1
-| hide      | 隐藏列 | Boolean |    | false
-| formatter      | 内容格式化 | Object |    | 
+| 属性      | 说明         | 类型           | 可选                 | 默认值 |
+| --------- | ------------ | -------------- | -------------------- | ------ |
+| title     | 列名称       | String         |                      |
+| key       | 键           | String         |                      |
+| align     | 对齐方式     | String         | left，center,right   | left   |
+| sorter    | 是否开启排序 | Boolean        | true，false          | false  |
+| width     | 列宽         | Number，String | 像素或百分比         | 自适应 |
+| ellipsis  | 超出省略     | Number         | 设置为0或false则全显 | 1      |
+| hide      | 隐藏列       | Boolean        |                      | false  |
+| formatter | 内容格式化   | Object         |                      |
 
 ### formatter 示例
 #### 格式化为文本
@@ -249,8 +261,8 @@ formatter: {
 
 ## 事件
 
-| 事件名称     | 说明               | 回调参数         |
-| ------------ | ------------------ | ---------------- |
+| 事件名称     | 说明   | 回调参数                                |
+| ------------ | ------ | --------------------------------------- |
 | rowSelection | 行选择 | function(selectedRowKeys，selectedRows) |
 > selectedRowKeys 选中行 key
 
@@ -258,9 +270,9 @@ formatter: {
 
 ## 方法
 
-| 方法名称 | 说明       | 举例                                               |
-| ---- | ---------- | -------------------------------------------------- |
-| search | 获取查询条件 |  this.$refs.myTable.search({ headers: {}, params: {} }) |
+| 方法名称 | 说明         | 举例                                                   |
+| -------- | ------------ | ------------------------------------------------------ |
+| search   | 获取查询条件 | this.$refs.myTable.search({ headers: {}, params: {} }) |
 
 > headers 主要用于增加token
 

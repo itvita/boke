@@ -425,7 +425,7 @@ export default {
       pId: '-1',
       name: '跟节点',
       // icon: 'https://cdn.jsdelivr.net/gh/itvita/liuqiang@master/nage/gongsi.png' //自定义图标
-      drag: false // 禁止拖动
+      drag: false, // 禁止拖动
     }
     zNodes.forEach(d => {
       d.pId = d.pid
@@ -482,6 +482,9 @@ export default {
 | 方法名称 | 参数                        | 说明       |
 | -------- | --------------------------- | ---------- |
 | init     | 树形简单数据[{id,name,pId}] | 树形初始化 |
+| select   | id                          | 设置选中   |
+
+
 
 ## 多选
 ### 示例
