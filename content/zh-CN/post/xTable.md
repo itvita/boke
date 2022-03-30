@@ -30,6 +30,8 @@ tags: ["vue","插件"]
       :columns="columns"
       :action="action"
       :expandedRowDetail="2"
+       :scrollX="1280"
+      :scrollY="300"
       data-url="https://getman.cn/mock/my/table3">
       <a-space slot="tools">
         <a-button icon="plus" type="primary">
@@ -188,6 +190,8 @@ export default {
 | showIndex         | 显示序号                    | Boolean          | false    |
 | dataUrl           | 数据请求地址                | String           |          |
 | actionWidth       | 操作列宽                    | Number           | 120      |
+| scrollX           | 滚动区域宽                  | Number           | 960      |
+| scrollY           | 滚动区域高                  | Number           | 800      |
 
 ### columns
 | 属性      | 说明         | 类型           | 可选                 | 默认值 |
