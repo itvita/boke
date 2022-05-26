@@ -14,7 +14,8 @@ tags: ["vue","插件"]
 2. [代码](#代码)
 3. [属性](#属性)
    1. [columns](#columns)
-   2. [formatter 示例](#formatter-示例)
+   2. [action](#action)
+   3. [formatter 示例](#formatter-示例)
       1. [格式化为文本](#格式化为文本)
       2. [格式化为徽章](#格式化为徽章)
       3. [格式化为图片](#格式化为图片)
@@ -141,6 +142,7 @@ const action = [
     title: '修改',
     icon:'edit',//显示图标，目前仅支持官方图标库，moren edit
     color: 'link', // 显示颜色link,error,wain, rgb , hex
+    permission:'edit',
     event: row => {
       console.log(row)
     }
@@ -150,6 +152,13 @@ const action = [
     color: 'error', // 显示颜色link,error,wain, rgb , hex
     event: row => {
       console.log(row)
+    },
+    hidden: row => {
+      console.log(row)
+      if (row.id % 2 === 0) {
+        return true
+      }
+        return false
     }
   },
   {
@@ -179,19 +188,21 @@ export default {
 ```
 ## 属性
 
-| 属性              | 说明                        | 类型             | 默认值   |
-| ----------------- | --------------------------- | ---------------- | -------- |
-| title             | 列表标题                    | String           | 查询列表 |
-| columns           | 列配置                      | Array            | []       |
-| action            | 操作配置                    | Array            | []       |
-| expandedRowDetail | 详情行                      | Number           | 0        |
-| rowKey            | 行键 同antd-table           | String，function | id       |
-| selection         | 开启选择框 [checkbox,radio] | String           |          |
-| showIndex         | 显示序号                    | Boolean          | false    |
-| dataUrl           | 数据请求地址                | String           |          |
-| actionWidth       | 操作列宽                    | Number           | 120      |
-| scrollX           | 滚动区域宽                  | Number           | 960      |
-| scrollY           | 滚动区域高                  | Number           | 800      |
+| 属性              | 说明                               | 类型             | 默认值   |
+| ----------------- | ---------------------------------- | ---------------- | -------- |
+| title             | 列表标题                           | String           | 查询列表 |
+| columns           | 列配置                             | Array            | []       |
+| action            | 操作配置                           | Array            | []       |
+| expandedRowDetail | 默认详情操作按钮（0不显示，1显示） | Number           | 0        |
+| rowKey            | 行键 同antd-table                  | String，function | id       |
+| selection         | 开启选择框 [checkbox,radio]        | String           |          |
+| showIndex         | 显示序号                           | Boolean          | false    |
+| dataUrl           | 数据请求地址                       | String           |          |
+| actionWidth       | 操作列宽                           | Number           | 120      |
+| scrollX           | 滚动区域宽                         | Number           | 960      |
+| scrollY           | 滚动区域高                         | Number           | 800      |
+| data-source       | 默认数据                           | array            | []       |
+
 
 ### columns
 | 属性      | 说明         | 类型           | 可选                 | 默认值 |
@@ -204,6 +215,18 @@ export default {
 | ellipsis  | 超出省略     | Number         | 设置为0或false则全显 | 1      |
 | hide      | 隐藏列       | Boolean        |                      | false  |
 | formatter | 内容格式化   | Object         |                      |
+
+
+### action
+| 属性       | 说明         | 类型               | 可选                               | 默认值 |
+| ---------- | ------------ | ------------------ | ---------------------------------- | ------ |
+| title      | 操作名称     | String             |                                    |        |
+| icon       | 显示图标     | String             | antd-icon                          |        |
+| color      | 文字颜色     | String             | 显示颜色link,error,wain, rgb , hex |        |
+| permission | 权限标识     | String             |                                    |        |
+| event      | 点击事件     | row=>{}            |                                    |        |
+| hidden     | 动态隐藏条件 | row=>{return true} |                                    | true   |
+
 
 ### formatter 示例
 #### 格式化为文本

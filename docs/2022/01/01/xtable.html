@@ -125,7 +125,7 @@ XTable
 |
 <i class="fa fa-file-word-o fa-fw"></i>
 <span class=post-meta-item-text>字数：</span>
-<span class=leancloud-world-count>1846 字</span>
+<span class=leancloud-world-count>1964 字</span>
 </span>
 <span>
 |
@@ -148,6 +148,7 @@ XTable
 <li><a href=#%E5%B1%9E%E6%80%A7>属性</a>
 <ol>
 <li><a href=#columns>columns</a></li>
+<li><a href=#action>action</a></li>
 <li><a href=#formatter-%E7%A4%BA%E4%BE%8B>formatter 示例</a>
 <ol>
 <li><a href=#%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%BA%E6%96%87%E6%9C%AC>格式化为文本</a></li>
@@ -278,7 +279,8 @@ XTable
     title<span style=color:#666>:</span> <span style=color:#b44>&#39;修改&#39;</span>,
     icon<span style=color:#666>:</span><span style=color:#b44>&#39;edit&#39;</span>,<span style=color:#080;font-style:italic>//显示图标，目前仅支持官方图标库，moren edit
 </span><span style=color:#080;font-style:italic></span>    color<span style=color:#666>:</span> <span style=color:#b44>&#39;link&#39;</span>, <span style=color:#080;font-style:italic>// 显示颜色link,error,wain, rgb , hex
-</span><span style=color:#080;font-style:italic></span>    event<span style=color:#666>:</span> row =&gt; {
+</span><span style=color:#080;font-style:italic></span>    permission<span style=color:#666>:</span><span style=color:#b44>&#39;edit&#39;</span>,
+    event<span style=color:#666>:</span> row =&gt; {
       console.log(row)
     }
   },
@@ -287,6 +289,13 @@ XTable
     color<span style=color:#666>:</span> <span style=color:#b44>&#39;error&#39;</span>, <span style=color:#080;font-style:italic>// 显示颜色link,error,wain, rgb , hex
 </span><span style=color:#080;font-style:italic></span>    event<span style=color:#666>:</span> row =&gt; {
       console.log(row)
+    },
+    hidden<span style=color:#666>:</span> row =&gt; {
+      console.log(row)
+      <span style=color:#a2f;font-weight:700>if</span> (row.id <span style=color:#666>%</span> <span style=color:#666>2</span> <span style=color:#666>===</span> <span style=color:#666>0</span>) {
+        <span style=color:#a2f;font-weight:700>return</span> <span style=color:#a2f;font-weight:700>true</span>
+      }
+        <span style=color:#a2f;font-weight:700>return</span> <span style=color:#a2f;font-weight:700>false</span>
     }
   },
   {
@@ -344,7 +353,7 @@ XTable
 </tr>
 <tr>
 <td>expandedRowDetail</td>
-<td>详情行</td>
+<td>默认详情操作按钮（0不显示，1显示）</td>
 <td>Number</td>
 <td>0</td>
 </tr>
@@ -389,6 +398,12 @@ XTable
 <td>滚动区域高</td>
 <td>Number</td>
 <td>800</td>
+</tr>
+<tr>
+<td>data-source</td>
+<td>默认数据</td>
+<td>array</td>
+<td>[]</td>
 </tr>
 </tbody>
 </table>
@@ -459,6 +474,62 @@ XTable
 <td>Object</td>
 <td></td>
 <td></td>
+</tr>
+</tbody>
+</table>
+<h3 id=action>action</h3>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>类型</th>
+<th>可选</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>操作名称</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>icon</td>
+<td>显示图标</td>
+<td>String</td>
+<td>antd-icon</td>
+<td></td>
+</tr>
+<tr>
+<td>color</td>
+<td>文字颜色</td>
+<td>String</td>
+<td>显示颜色link,error,wain, rgb , hex</td>
+<td></td>
+</tr>
+<tr>
+<td>permission</td>
+<td>权限标识</td>
+<td>String</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>event</td>
+<td>点击事件</td>
+<td>row=>{}</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>hidden</td>
+<td>动态隐藏条件</td>
+<td>row=>{return true}</td>
+<td></td>
+<td>true</td>
 </tr>
 </tbody>
 </table>
@@ -652,7 +723,7 @@ XSearch
 <nav class="site-state motion-element">
 <div class="site-state-item site-state-posts">
 <a href=/post/>
-<span class=site-state-item-count>32</span>
+<span class=site-state-item-count>33</span>
 <span class=site-state-item-name>日志</span>
 </a>
 </div>
@@ -745,6 +816,7 @@ gitee
 <li><a href=#属性>属性</a>
 <ul>
 <li><a href=#columns>columns</a></li>
+<li><a href=#action>action</a></li>
 <li><a href=#formatter-示例>formatter 示例</a></li>
 </ul>
 </li>
